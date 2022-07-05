@@ -6,7 +6,7 @@ resource "aws_rds_cluster" "rds-cluster" {
   engine              = var.engine
   engine_version      = var.engine_version
   #availability_zones  = var.availability_zones
-  availability_zones = ["us-east-1a", "us-east-1b", "us-east-1e"]
+  availability_zones = ["us-east-1f","us-east-1c","us-east-1d"]
   database_name       = var.database_name
   master_username     = var.master_username
   master_password     = var.master_password
@@ -21,6 +21,8 @@ resource "aws_rds_cluster" "rds-cluster" {
 }
 
 resource "aws_db_subnet_group" "subnetgroup" {
-  name       = "main"
-  subnet_ids = ["subnet-07630e0e427e128cd", "subnet-0d55dad9d07e7b7ad", "subnet-0f74ce01b4f309938"]
+  name       = "test-subnet-group"
+  subnet_ids = ["subnet-07630e0e427e128cd", "subnet-0d55dad9d07e7b7ad", "subnet-0f74ce01b4f309938", "subnet-06790787cb8a07527",
+  "subnet-03e846592ee978c88","subnet-05624843c1c687c5e"
+  ]
 }
