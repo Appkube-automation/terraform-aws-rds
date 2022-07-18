@@ -11,6 +11,7 @@ resource "aws_rds_cluster" "rds-cluster" {
   master_username     = var.master_username
   master_password     = var.master_password
   apply_immediately   = var.apply_immediately
+  port                = var.port
   db_cluster_instance_class = var.db_cluster_instance_class
   storage_type        = var.storage_type
   allocated_storage   = var.allocated_storage
@@ -18,11 +19,12 @@ resource "aws_rds_cluster" "rds-cluster" {
   skip_final_snapshot = var.skip_final_snapshot
   backup_retention_period = var.backup_retention_period
   db_subnet_group_name = aws_db_subnet_group.subnetgroup.name
+  kms_key_id           = var.kms_key_id
+  storage_encrypted    = var.storage_encrypted
+
 }
 
 resource "aws_db_subnet_group" "subnetgroup" {
-  name       = "test-subnet-group"
-  subnet_ids = ["subnet-07630e0e427e128cd", "subnet-0d55dad9d07e7b7ad", "subnet-0f74ce01b4f309938", "subnet-06790787cb8a07527",
-  "subnet-03e846592ee978c88","subnet-05624843c1c687c5e"
-  ]
+  name       = "test-subnet-group3"
+  subnet_ids = ["subnet-06790787cb8a07527", "subnet-03e846592ee978c88","subnet-05624843c1c687c5e"]
 }

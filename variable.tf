@@ -74,3 +74,18 @@ variable "cluster_identifier_prefix" {
   type = string
   default = "zakir"
 }
+
+variable "port" {
+  type = number
+  default = 5432
+}
+
+variable "kms_key_id" {
+  type = string
+  default = "arn:aws:kms:us-east-1:657907747545:key/2058b724-4b85-4978-a700-b6bcc6274f6e"
+}
+
+variable "storage_encrypted" {
+  type = bool
+  default = true
+}
